@@ -1,25 +1,68 @@
-# Production Application Configuration
 application:
   name: DevOpsSimulator
   version: 1.0.0
-  environment: production
-  
+  environment: production   # Default environment (production)
+
 server:
-  host: 0.0.0.0
-  port: 8080
+  host: prod-server.example.com
+  port: 443
   ssl_enabled: true
-  
+  hot_reload: false
+
 logging:
   level: INFO
   format: json
-  output: /var/log/app.log
-  
+  output: file
+  show_stack_trace: false
+
 database:
   host: prod-db.example.com
   port: 5432
-  name: devops_prod
-  
+  name: devops_production
+
 features:
   auto_scaling: true
   load_balancer: enabled
   backup_enabled: true
+  experimental_features: false
+
+notifications:
+  slack_webhook: "https://hooks.slack.com/services/PROD_XXX"
+  discord_webhook: "https://discord.com/api/webhooks/PROD_YYY"
+  email_alerts: true
+
+# Optional development profile (only used when NODE_ENV=development)
+profiles:
+  development:
+    server:
+      host: localhost
+      port: 3000
+      ssl_enabled: false
+      hot_reload: true
+
+    logging:
+      level: DEBUG
+      format: pretty
+      output: console
+      show_stack_trace: true
+
+    database:
+      host: localhost
+      port: 5432
+      name: devops_dev
+
+    features:
+      auto_scaling: false
+      load_balancer: disabled
+      backup_enabled: false
+      experimental_features: true
+
+    notifications:
+      slack_webhook: "https://hooks.slack.com/services/DEV_XXX"
+      discord_webhook: "https://discord.com/api/webhooks/DEV_YYY"
+      email_alerts: false
+
+    environment_settings:
+      mock_external_apis: true
+      debug_mode: true
+      cors_enabled: true
