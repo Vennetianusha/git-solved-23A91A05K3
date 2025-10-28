@@ -58,3 +58,4 @@ cd devops-simulator
 # Run in development mode
 export DEPLOY_ENV=development
 ./scripts/deploy.sh
+## FAQ
