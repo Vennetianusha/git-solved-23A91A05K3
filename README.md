@@ -59,3 +59,4 @@ cd devops-simulator
 export DEPLOY_ENV=development
 ./scripts/deploy.sh
 ## FAQ
+update
