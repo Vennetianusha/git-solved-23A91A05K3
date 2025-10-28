@@ -1,26 +1,68 @@
 # System Architecture
 
 ## Overview
-DevOps Simulator follows a microservices architecture designed for high availability and scalability. This document covers both production and development configurations.
+DevOps Simulator follows a **microservices architecture** designed for **high availability, scalability, and experimental AI-driven optimization**.  
+This document covers **production**, **development**, and **experimental** configurations.
 
-## Components
+---
+
+## Core Components
 
 ### 1. Application Server
-- **Technology**: Node.js + Express
-- **Production Port**: 8080
-- **Development Port**: 3000
-- **Scaling**: Horizontal auto-scaling (production only)
+- **Technology**: Node.js + Express (+ TensorFlow.js for AI mode)
+- **Ports**: 
+  - Production: 8080  
+  - Development: 3000  
+  - Experimental: 9000 (main), 9001 (metrics), 9002 (AI API)
+- **Scaling**: 
+  - Production: Horizontal auto-scaling  
+  - Experimental: AI-powered predictive auto-scaling
+- **Intelligence (Experimental)**: Real-time ML inference
+- **Message Queue (Experimental)**: Apache Kafka for event streaming
 - **Development Features**: Hot reload, debug mode
 
-### 2. Database Layer
-- **Database**: PostgreSQL 14
-- **Production**: Master-slave replication with automated backups
-- **Development**: Single local instance with seed data
+---
 
-### 3. Monitoring System
-- **Production**: Prometheus + Grafana with email alerts
-- **Development**: Console logging with verbose output
-- **Metrics**: CPU, Memory, Disk, Network
+### 2. Database Layer
+- **Production**: PostgreSQL 14 (Master-slave replication with automated backups)
+- **Development**: Local instance with seed data
+- **Experimental**:
+  - Distributed PostgreSQL cluster (5 nodes)
+  - Redis cluster with ML-based cache optimization
+  - Multi-master replication
+  - Continuous geo-redundant backup
+  - AI query optimization & index suggestions
+
+---
+
+### 3. AI/ML Pipeline (Experimental)
+- **Frameworks**: TensorFlow, PyTorch, Scikit-learn
+- **Models**:
+  - Anomaly Detection (LSTM neural network)
+  - Load Prediction (XGBoost)
+  - Auto-scaling Optimizer (Reinforcement Learning)
+- **Training**: Continuous online learning
+- **Inference**: Real-time (<50ms latency)
+
+---
+
+### 4. Monitoring & Observability
+- **Production**: Prometheus + Grafana (email alerts)
+- **Development**: Console logging (verbose)
+- **Experimental**:
+  - Prometheus + Thanos (long-term metrics)
+  - ELK Stack with AI-driven log analysis
+- **Metrics**: CPU, Memory, Disk, Network, and AI performance
+
+---
+
+### 5. Multi-Cloud Orchestration (Experimental)
+- **Supported Clouds**: AWS, Azure, GCP, DigitalOcean
+- **Orchestrator**: Kubernetes with custom CRDs
+- **Load Balancing**: Global Anycast via GeoDNS
+- **Failover**: Automatic cross-cloud failover
+
+---
 
 ## Deployment Strategy
 
@@ -35,6 +77,18 @@ DevOps Simulator follows a microservices architecture designed for high availabi
 - **Features**: Hot reload, instant feedback
 - **Testing**: Automated tests before deployment
 
+### Experimental
+- **Method**: Kubernetes multi-cloud deployment
+- **Features**: AI-based scaling, chaos engineering
+- **Monitoring**: Real-time adaptive metrics
+
+---
+
 ## Security
 - **Production**: SSL/TLS encryption, strict access controls
-- **Development**: Relaxed security for easier debugging
+- **Development**: Relaxed security for debugging
+- **Experimental**:
+  - Zero-trust model
+  - AES-256 encryption
+  - Comprehensive audit logging
+  - Automated threat detection (AI-powered)
